@@ -1,6 +1,30 @@
 import { ClipboardText } from '@phosphor-icons/react';
+import { v4 as uuid } from 'uuid';
+import { TaskCard } from '../TaskCard';
 
-const mock: any[] = [];
+const mock: any[] = [
+  {
+    id: uuid(),
+    title: 'Estudar Next',
+    description: 'Descrição da tarefa 1',
+    date: '22/05/2023',
+    category: 'Normal',
+  },
+  {
+    id: uuid(),
+    title: 'Arrumar o quarto',
+    description: 'Descrição da tarefa 1',
+    date: '22/05/2023',
+    category: 'Prioridade',
+  },
+  {
+    id: uuid(),
+    title: 'Lavar a louça',
+    description: 'Descrição da tarefa 1',
+    date: '22/05/2023',
+    category: 'Urgente',
+  },
+];
 
 export const TaskList = () => {
   return (
@@ -16,7 +40,11 @@ export const TaskList = () => {
       </div>
 
       {mock?.length ? (
-        mock.map((elem) => <>{elem.name}</>)
+        <div className="tasks">
+          {mock.map((elem) => (
+            <TaskCard task={elem} key={elem.id} />
+          ))}
+        </div>
       ) : (
         <div className="empty-list">
           <ClipboardText size={60} />

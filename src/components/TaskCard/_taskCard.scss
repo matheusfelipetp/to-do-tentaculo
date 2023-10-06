@@ -1,0 +1,63 @@
+.task-card {
+  @include flex;
+  justify-content: space-between;
+
+  background: $gray-500;
+  border-radius: $radius;
+  width: 100%;
+  padding: 1rem 2rem;
+
+  .task-container {
+    @include flex;
+    gap: 2rem;
+
+    input[type='checkbox'] {
+      cursor: pointer;
+      accent-color: $primary;
+    }
+  }
+
+  .text-task {
+    @include flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      @include fontType(16);
+      color: $gray-100;
+
+      span {
+        @include fontType(14);
+        color: $gray-200;
+      }
+    }
+
+    p {
+      @include fontType(14);
+      color: $gray-200;
+    }
+  }
+
+  .actions-container {
+    @include flex;
+    gap: 2rem;
+
+    span {
+      @include fontType(14);
+      color: $gray-100;
+      background: $success;
+      padding: 0.2rem 1rem;
+      border-radius: $radius;
+      width: 100px;
+      text-align: center;
+
+      &.priority {
+        background: $warning;
+      }
+
+      &.urgent {
+        background: $important;
+      }
+    }
+  }
+}
