@@ -1,0 +1,32 @@
+$radius: 8px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+
+@mixin transition {
+  transition: 0.3s ease;
+}
+
+@mixin content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+body {
+  background: $gray-600;
+}

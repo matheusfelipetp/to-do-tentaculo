@@ -1,0 +1,16 @@
+//global
+@import 'colors';
+@import 'fonts';
+@import 'device';
+@import 'global';
+
+//components
+@import '@/components/Header/header';
+@import '@/components/Logo/logo';
+@import '@/components/Input/input';
+@import '@/components/Button/button';
+@import '@/components/Select/select';
+@import '@/components/ButtonCalendar/buttonCalendar';
+
+//pages
+@import '@/pages/Tasks/tasks';

@@ -1,0 +1,50 @@
+@mixin input {
+  border: none;
+  background: $gray-500;
+  border-radius: $radius;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+  border: 1px solid transparent;
+
+  &::placeholder {
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary;
+  }
+}
+
+.container-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input {
+  @include input;
+  @include fontType(14);
+  color: $gray-100;
+}
+
+.input-search {
+  padding-right: 3rem;
+}
+
+.icon {
+  color: $gray-200;
+  width: 100%;
+  max-width: 1.5rem;
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    color: $primary;
+  }
+}

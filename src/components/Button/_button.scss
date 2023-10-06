@@ -1,0 +1,34 @@
+@mixin button {
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+}
+
+.btn {
+  @include flex;
+  @include fontType(16);
+  @include transition;
+  @include button;
+
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+  font-weight: 700;
+  gap: 0.5rem;
+  padding: 0.8rem 3rem;
+  background: $primary;
+  color: $gray-700;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  @include device(medium) {
+    max-width: 50px;
+    padding: 0.8rem;
+
+    p {
+      display: none;
+    }
+  }
+}

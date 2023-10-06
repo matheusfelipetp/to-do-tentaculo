@@ -1,0 +1,15 @@
+.task-main {
+  @include container;
+  @include content;
+
+  input {
+    padding: 0.8rem;
+  }
+
+  .new-task,
+  .select-task {
+    @include flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}

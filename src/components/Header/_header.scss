@@ -1,0 +1,19 @@
+.header {
+  background: $gray-700;
+  padding: 2rem 0;
+
+  .container {
+    @include container;
+    @include flex;
+    justify-content: space-between;
+
+    .container-input {
+      max-width: 320px;
+    }
+
+    @include device(medium) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
