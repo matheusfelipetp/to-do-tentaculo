@@ -4,6 +4,10 @@
   max-width: 400px;
   padding: 0.8rem;
 
+  @include device(medium) {
+    max-width: 100%;
+  }
+
   option {
     color: $gray-100;
   }

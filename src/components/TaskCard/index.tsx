@@ -1,3 +1,4 @@
+import { useMedia } from '@/hooks/useMedia';
 import { Pencil, Trash } from '@phosphor-icons/react';
 
 type Task = {
@@ -6,6 +7,7 @@ type Task = {
   description: string;
   date: string;
   category: string;
+  isFinished: boolean;
 };
 
 type TaskCardProps = {
@@ -13,6 +15,8 @@ type TaskCardProps = {
 };
 
 export const TaskCard = ({ task }: TaskCardProps) => {
+  const mobile = useMedia('(max-width:47.5rem)');
+
   const verifyPriority = () => {
     if (task.category === 'Prioridade') {
       return 'priority';
@@ -26,16 +30,16 @@ export const TaskCard = ({ task }: TaskCardProps) => {
       <div className="task-container">
         <input type="checkbox" className="custom-checkbox" />
 
-        <div className="text-task">
-          <h3>
-            {task.title} <span> - {task.date}</span>
-          </h3>
+        <div className={`text-task ${task.isFinished && 'finished'}`}>
+          <div className="title-container">
+            <h3>{task.title}</h3> <span>{task.date}</span>
+          </div>
           <p>{task.description}</p>
         </div>
       </div>
 
       <div className="actions-container">
-        <span className={verifyPriority()}>{task.category}</span>
+        <span className={verifyPriority()}>{!mobile && task.category}</span>
 
         <div className="btn-container">
           <button className="btn-edit">

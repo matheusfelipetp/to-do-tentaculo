@@ -1,10 +1,10 @@
-$l-device: 1200px;
+$l-device: 1100px;
 $m-device: 760px;
 $s-device: 400px;
 
 @mixin device($size) {
   @if $size == large {
-    @media screen and (min-width: $l-device) {
+    @media screen and (max-width: $l-device) {
       @content;
     }
   } @else if $size == medium {

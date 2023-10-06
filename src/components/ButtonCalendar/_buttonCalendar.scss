@@ -8,6 +8,10 @@
   border: 1px solid $secondary;
   color: $secondary;
 
+  @include device(medium) {
+    padding: 0.8rem;
+  }
+
   &:hover {
     background: $gray-100;
   }

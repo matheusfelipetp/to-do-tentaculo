@@ -3,6 +3,10 @@
   padding-top: 40px;
   padding-bottom: 40px;
 
+  @include device(medium) {
+    display: grid;
+  }
+
   .btn-back {
     @include flex;
     @include button;
@@ -16,6 +20,13 @@
     padding: 0.5rem 2.5rem;
     font-weight: 500;
     margin-bottom: 20px;
+
+    @include device(medium) {
+      justify-content: center;
+      justify-self: center;
+      width: 100%;
+      max-width: 200px;
+    }
 
     &:hover {
       background: $gray-100;

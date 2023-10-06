@@ -5,10 +5,13 @@ import { TaskCard } from '../TaskCard';
 const mock: any[] = [
   {
     id: uuid(),
-    title: 'Estudar Next',
-    description: 'Descrição da tarefa 1',
+    title:
+      'Estudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar Next',
+    description:
+      'Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1',
     date: '22/05/2023',
     category: 'Normal',
+    isFinished: true,
   },
   {
     id: uuid(),
@@ -16,6 +19,7 @@ const mock: any[] = [
     description: 'Descrição da tarefa 1',
     date: '22/05/2023',
     category: 'Prioridade',
+    isFinished: true,
   },
   {
     id: uuid(),
@@ -23,6 +27,7 @@ const mock: any[] = [
     description: 'Descrição da tarefa 1',
     date: '22/05/2023',
     category: 'Urgente',
+    isFinished: false,
   },
 ];
 

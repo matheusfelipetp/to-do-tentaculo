@@ -1,15 +1,34 @@
 .task-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: 1fr 200px;
+  position: relative;
   background: $gray-500;
   border-radius: $radius;
   width: 100%;
   padding: 1rem 2rem;
 
+  @include device(medium) {
+    grid-template-columns: 1fr auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @include device(small) {
+    padding: 0.5rem 1rem;
+  }
+
   .task-container {
     @include flex;
     gap: 2rem;
+
+    @include device(small) {
+      gap: 0.5rem;
+    }
 
     .custom-checkbox {
       width: 40px;
@@ -24,9 +43,36 @@
     flex-direction: column;
     align-items: flex-start;
 
-    h3 {
-      @include fontType(16);
-      color: $gray-100;
+    .title-container {
+      @include flex;
+      gap: 0.5rem;
+
+      @include device(small) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+
+      h3 {
+        @include fontType(16);
+        color: $gray-100;
+        max-width: 60ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include device(large) {
+          max-width: 20ch;
+        }
+
+        @include device(medium) {
+          max-width: 10ch;
+        }
+
+        @include device(small) {
+          max-width: 15ch;
+        }
+      }
 
       span {
         @include fontType(14);
@@ -37,6 +83,26 @@
     p {
       @include fontType(14);
       color: $gray-200;
+      max-width: 80ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      @include device(large) {
+        max-width: 40ch;
+      }
+
+      @include device(medium) {
+        max-width: 20ch;
+      }
+    }
+
+    &.finished {
+      h3,
+      p {
+        text-decoration: line-through;
+        color: $gray-200;
+      }
     }
   }
 
@@ -44,6 +110,11 @@
     @include flex;
     gap: 2rem;
     justify-self: end;
+
+    @media screen and (max-width: 500px) {
+      justify-content: center;
+      width: 100%;
+    }
 
     span {
       @include fontType(14);
@@ -60,6 +131,23 @@
 
       &.urgent {
         background: $important;
+      }
+
+      @include device(medium) {
+        width: 1rem;
+        height: 1rem;
+        padding: 0;
+        border-radius: 50%;
+      }
+
+      @media screen and (max-width: 500px) {
+        position: absolute;
+        right: 1.5rem;
+        top: 1.5rem;
+      }
+
+      @media screen and (max-width: 300px) {
+        display: none;
       }
     }
 
