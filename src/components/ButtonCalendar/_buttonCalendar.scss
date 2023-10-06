@@ -1,6 +1,7 @@
 .btn-calendar {
   @include button;
   @include transition;
+  @include flex;
 
   padding: 0.5rem 1rem;
   background: transparent;

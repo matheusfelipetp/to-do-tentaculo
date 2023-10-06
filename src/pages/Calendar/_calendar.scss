@@ -1,0 +1,87 @@
+.calendar {
+  @include container;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  .btn-back {
+    @include flex;
+    @include button;
+    @include transition;
+    @include fontType(14);
+
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid $secondary;
+    color: $secondary;
+    padding: 0.5rem 2.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+
+    &:hover {
+      background: $gray-100;
+    }
+  }
+
+  .fc-toolbar-ltr {
+    @include device(medium) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .fc-daygrid-day-frame {
+    background: $gray-500;
+
+    @include device(medium) {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame {
+    background: $gray-600;
+  }
+
+  .fc-event-main {
+    @include fontType(14);
+    color: $gray-100;
+  }
+
+  .fc-daygrid-day-number {
+    @include fontType(12);
+    color: $gray-200;
+    font-weight: 500;
+  }
+
+  .fc-theme-standard .fc-scrollgrid,
+  .fc-scrollgrid td,
+  .fc-theme-standard th,
+  .fc-col-header-cell {
+    border-color: $primary;
+  }
+
+  .fc-col-header-cell {
+    @include fontType(14);
+    color: $gray-100;
+    background: $success;
+  }
+
+  .fc-toolbar-title {
+    @include fontType(32);
+    font-weight: 700;
+    color: $gray-100;
+
+    @include device(medium) {
+      @include fontType(20);
+    }
+  }
+
+  .fc-button-primary {
+    @include fontType(14);
+    background: $gray-500;
+    border: none;
+  }
+
+  .fc-button-primary:not(:disabled).fc-button-active {
+    background: $secondary;
+  }
+}

@@ -1,4 +1,4 @@
-import { Trash } from '@phosphor-icons/react';
+import { Pencil, Trash } from '@phosphor-icons/react';
 
 type Task = {
   id: string;
@@ -24,7 +24,7 @@ export const TaskCard = ({ task }: TaskCardProps) => {
   return (
     <div className="task-card">
       <div className="task-container">
-        <input type="checkbox" />
+        <input type="checkbox" className="custom-checkbox" />
 
         <div className="text-task">
           <h3>
@@ -37,9 +37,15 @@ export const TaskCard = ({ task }: TaskCardProps) => {
       <div className="actions-container">
         <span className={verifyPriority()}>{task.category}</span>
 
-        <button>
-          <Trash />
-        </button>
+        <div className="btn-container">
+          <button className="btn-edit">
+            <Pencil size={20} />
+          </button>
+
+          <button className="btn-delete">
+            <Trash size={20} />
+          </button>
+        </div>
       </div>
     </div>
   );
