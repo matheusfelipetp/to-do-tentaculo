@@ -1,7 +1,7 @@
 $font: 'Raleway', sans-serif;
 
 @function em($pixel, $contexto: 16) {
-  @return $pixel / $contexto + em;
+  @return calc($pixel / $contexto) + em;
 }
 
 @mixin fontType($size) {

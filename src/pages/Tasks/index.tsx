@@ -2,6 +2,7 @@ import { Button } from '@/components/Button';
 import { ButtonCalendar } from '@/components/ButtonCalendar';
 import { Input } from '@/components/Input';
 import { Select } from '@/components/Select';
+import { TaskList } from '@/components/TaskList';
 import { v4 as uuid } from 'uuid';
 
 const mock = [
@@ -35,6 +36,8 @@ export const TasksPage = () => {
         <Select options={mock} />
         <ButtonCalendar />
       </div>
+
+      <TaskList />
     </main>
   );
 };

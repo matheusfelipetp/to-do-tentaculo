@@ -1,0 +1,63 @@
+.task-list {
+  margin-top: 4rem;
+
+  .text-container {
+    @include flex;
+    @include fontType(16);
+
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid $gray-500;
+
+    @include device(small) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .task-created {
+      @include flex;
+      gap: 10px;
+      color: $primary;
+    }
+
+    .task-finished {
+      @include flex;
+      gap: 10px;
+      color: $secondary;
+    }
+
+    span {
+      background: $gray-500;
+      color: $gray-100;
+      padding: 0.1rem 0.5rem;
+      border-radius: 15%;
+    }
+  }
+
+  .empty-list {
+    @include flex;
+    @include fontType(16);
+    flex-direction: column;
+
+    margin-top: 120px;
+    justify-content: center;
+    align-items: center;
+    color: $gray-200;
+
+    h3,
+    p {
+      color: $gray-200;
+      text-align: center;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-weight: 400;
+    }
+  }
+}
