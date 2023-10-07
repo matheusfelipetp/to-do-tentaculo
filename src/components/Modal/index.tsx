@@ -1,15 +1,7 @@
 import { useTask } from '@/hooks/useTask';
 import { mockOptionsCreate } from '@/mocks/options';
 import { TaskProps } from '@/types/task';
-import {
-  Col,
-  DatePicker,
-  Form,
-  Input,
-  Modal as ModalAntd,
-  Row,
-  Select,
-} from 'antd';
+import { Col, DatePicker, Form, Input, Modal as ModalAntd, Row } from 'antd';
 import locale from 'antd/es/date-picker/locale/pt_BR';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
@@ -64,6 +56,7 @@ export const Modal = ({
       ...values,
       id: uuid(),
       date: dateSelected,
+      isFinished: false,
     };
 
     createTask(newTask);
@@ -74,6 +67,7 @@ export const Modal = ({
     const taskDate = taskSelected?.date ? taskSelected.date : '';
 
     const newTask = {
+      ...taskSelected,
       ...values,
       date: dateSelected ? dateSelected : taskDate,
     };
@@ -103,9 +97,11 @@ export const Modal = ({
       centered
       width={600}
       cancelText="Fechar"
+      okButtonProps={{ 'data-testid': 'add-button' }}
       okText={isEditMode ? 'Editar' : 'Adicionar'}
       onOk={form.submit}
       title={isEditMode ? 'Editar tarefa' : 'Adicionar tarefa'}
+      data-testid="modal"
     >
       <Form
         form={form}
@@ -114,7 +110,11 @@ export const Modal = ({
         <Row gutter={[16, 0]}>
           <Col xs={24}>
             <Form.Item name="title" rules={rules}>
-              <Input className="input" placeholder="Digite o nome da tarefa" />
+              <Input
+                className="input"
+                placeholder="Digite o nome da tarefa"
+                data-testid="input-name"
+              />
             </Form.Item>
           </Col>
 
@@ -123,19 +123,20 @@ export const Modal = ({
               <Input
                 className="input"
                 placeholder="Digite a descrição da tarefa"
+                data-testid="input-description"
               />
             </Form.Item>
           </Col>
 
           <Col xs={24}>
             <Form.Item initialValue="Normal" name="category" rules={rules}>
-              <Select defaultValue="Normal">
+              <select className="select" data-testid="select-category">
                 {mockOptionsCreate.map(({ id, option }) => (
-                  <Select.Option key={id} value={option}>
+                  <option key={id} value={option}>
                     {option}
-                  </Select.Option>
+                  </option>
                 ))}
-              </Select>
+              </select>
             </Form.Item>
           </Col>
 
@@ -147,6 +148,7 @@ export const Modal = ({
                 format={['DD/MM/YYYY']}
                 placeholder="Selecione a data"
                 locale={locale}
+                data-testid="input-date"
               />
             </Form.Item>
           </Col>
