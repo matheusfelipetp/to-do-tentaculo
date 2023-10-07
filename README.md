@@ -28,7 +28,7 @@ npm install
 
 ou
 
-yarn install
+yarn
 ```
 
 <br/>
@@ -38,10 +38,10 @@ yarn install
 Para usar o projeto, navegue para a pasta do projeto clonado, já com as instalações finalizadas, e utilize um dos comandos abaixo:
 
 ```
-npm start
+npm run dev
 
 ou
 
-yarn start
+yarn dev
 ```
 
