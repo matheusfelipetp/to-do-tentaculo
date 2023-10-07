@@ -7,6 +7,17 @@ import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
+/*
+Este componente representa um modal utilizado para adicionar ou editar tarefas. Possui um formulário que permite ao usuário inserir informações sobre a tarefa.
+
+- ModalProps: As propriedades do componente.
+- open: Indica se o modal está aberto ou fechado.
+- handleCancel: Função de retorno de chamada para fechar o modal.
+- isEditMode: Indica se o modal está em modo de edição.
+- taskSelected: A tarefa selecionada para edição (caso o modal esteja em modo de edição).
+- dateSelected: A data selecionada pelo usuário no DatePicker.
+*/
+
 type ModalProps = {
   open: boolean;
   handleCancel: () => void;

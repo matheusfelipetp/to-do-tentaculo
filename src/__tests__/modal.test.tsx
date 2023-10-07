@@ -1,4 +1,5 @@
 import { Modal } from '@/components/Modal';
+import { TaskProps } from '@/types/task';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -103,7 +104,7 @@ describe('Modal', () => {
   });
 
   test('Should update a task with some fields changed', async () => {
-    const existingTask = {
+    const existingTask: TaskProps = {
       id: '123',
       title: 'Tarefa Existente',
       description: 'Descrição Original',

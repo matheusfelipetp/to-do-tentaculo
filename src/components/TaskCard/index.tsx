@@ -8,6 +8,14 @@ import { Checkbox, Popconfirm } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
 
+/*
+Este componente representa um card com as informações da tarefa exibida na interface de usuário.
+
+- TaskCardProps: As propriedades do componente.
+- task: A tarefa a ser exibida.
+- openModal: O estado que controla a abertura do modal de edição.
+*/
+
 type TaskCardProps = {
   task: TaskProps;
 };

@@ -3,6 +3,20 @@ import { TaskProps } from '@/types/task';
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
+/*
+  Esse contexto tem por finalidade armazenar as tarefas do usuário. Ele é utilizado para que os componentes possam acessá-las e manipulá-las.
+
+  - TaskContextProps: As propriedades do contexto.
+  - TaskProviderProps: As propriedades do componente que provê o contexto.
+  - taskList: A lista de tarefas.
+  - setTaskList: A função que atualiza a lista de tarefas.
+  - createTask: A função que cria uma nova tarefa.
+  - removeTask: A função que remove uma tarefa.
+  - updateTask: A função que atualiza uma tarefa.
+  - filteredList: A lista de tarefas filtradas.
+  - setFilteredList: A função que atualiza a lista de tarefas filtradas.
+*/
+
 type TaskContextProps = {
   taskList: TaskProps[];
   setTaskList: (taskList: TaskProps[]) => void;

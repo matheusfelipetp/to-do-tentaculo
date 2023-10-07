@@ -1,6 +1,14 @@
 import { useTask } from '@/hooks/useTask';
 import { Select as SelectAntd } from 'antd';
 
+/*
+Este componente representa um campo de seleção que permite ao usuário filtrar tarefas por categoria. 
+
+- SelectProps: As propriedades do componente.
+- options: As opções do campo de seleção.
+- defaultValue: O valor padrão do campo de seleção.
+*/
+
 type Option = {
   id: string;
   option: string;

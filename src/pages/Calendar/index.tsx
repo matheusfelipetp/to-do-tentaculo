@@ -4,6 +4,13 @@ import FullCalendar from '@fullcalendar/react';
 import { ArrowUUpLeft } from '@phosphor-icons/react';
 import { useNavigate } from 'react-router-dom';
 
+/*
+ Este componente representa a página de calendário. Ele exibe um calendário com eventos baseados nas tarefas cadastradas e fornece opções de navegação e visualização.
+
+  - events: Os eventos do calendário.
+  - handleGoBack: A função que retorna para a página inicial.
+*/
+
 export const CalendarPage = () => {
   const { taskList } = useTask();
   const navigate = useNavigate();

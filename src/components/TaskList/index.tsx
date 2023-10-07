@@ -2,6 +2,10 @@ import { TaskCard } from '@/components/TaskCard';
 import { useTask } from '@/hooks/useTask';
 import { ClipboardText } from '@phosphor-icons/react';
 
+/*
+Este componente representa a lista de tarefas exibida na interface de usuário. 
+*/
+
 export const TaskList = () => {
   const { taskList, filteredList } = useTask();
 

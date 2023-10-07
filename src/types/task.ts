@@ -3,6 +3,6 @@ export type TaskProps = {
   title: string;
   description: string;
   date: string;
-  category: 'Normal' | 'Prioridade' | 'Urgente' | string;
+  category: 'Normal' | 'Prioridade' | 'Urgente';
   isFinished: boolean;
 };
