@@ -1,0 +1,63 @@
+//O important está sendo utilizado em alguns casos para sobrescrever o estilo padrão do antd
+
+.ant-modal-content,
+.ant-modal-title {
+  background: $gray-600 !important;
+  color: $gray-100 !important;
+}
+
+.ant-picker-content th {
+  color: $gray-100 !important;
+}
+
+.ant-picker-body {
+  background: $gray-600 !important;
+}
+
+.ant-picker-suffix {
+  color: $gray-200 !important;
+}
+
+.ant-picker-clear {
+  color: $gray-100 !important;
+  background: transparent !important;
+}
+
+.ant-picker-header-view,
+.ant-picker-header,
+.ant-picker-header-next-btn,
+.ant-picker-header-super-next-btn,
+.ant-picker-header-prev-btn,
+.ant-picker-header-super-prev-btn,
+.ant-picker-footer {
+  background: $gray-500;
+  color: $gray-100 !important;
+}
+
+.ant-picker-today-btn {
+  color: $primary !important;
+}
+
+.ant-modal-close-x {
+  color: $primary;
+}
+
+.ant-modal-title {
+  margin-bottom: 2rem !important;
+}
+
+.ant-modal-content button {
+  color: $gray-700;
+}
+
+.ant-picker-cell-inner {
+  color: $gray-200;
+}
+
+.ant-picker-input input {
+  color: $gray-100 !important;
+
+  &::placeholder {
+    color: $gray-200 !important;
+  }
+}

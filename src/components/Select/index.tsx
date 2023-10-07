@@ -1,3 +1,6 @@
+import { useTask } from '@/hooks/useTask';
+import { Select as SelectAntd } from 'antd';
+
 type Option = {
   id: string;
   option: string;
@@ -5,16 +8,29 @@ type Option = {
 
 type SelectProps = {
   options: Option[];
+  defaultValue: string;
 };
 
-export const Select = ({ options }: SelectProps) => {
+export const Select = ({ options, defaultValue }: SelectProps) => {
+  const { taskList, setFilteredList } = useTask();
+
+  const handleChange = (value: string) => {
+    if (value === 'Todos') {
+      setFilteredList(taskList);
+    } else {
+      const filteredList = taskList.filter((task) => task.category === value);
+
+      setFilteredList(filteredList);
+    }
+  };
+
   return (
-    <select className="select">
-      {options.map((item) => (
-        <option key={item.id} value={item.option}>
-          {item.option}
-        </option>
+    <SelectAntd defaultValue={defaultValue} onChange={handleChange}>
+      {options.map(({ id, option }) => (
+        <SelectAntd.Option key={id} value={option}>
+          {option}
+        </SelectAntd.Option>
       ))}
-    </select>
+    </SelectAntd>
   );
 };

@@ -1,43 +1,32 @@
 import { Button } from '@/components/Button';
 import { ButtonCalendar } from '@/components/ButtonCalendar';
-import { Input } from '@/components/Input';
+import { Modal } from '@/components/Modal';
 import { Select } from '@/components/Select';
 import { TaskList } from '@/components/TaskList';
-import { v4 as uuid } from 'uuid';
-
-const mock = [
-  {
-    id: uuid(),
-    option: 'Todos',
-  },
-  {
-    id: uuid(),
-    option: 'Normal',
-  },
-  {
-    id: uuid(),
-    option: 'Prioridade',
-  },
-  {
-    id: uuid(),
-    option: 'Urgente',
-  },
-];
+import { mockOptions } from '@/mocks/options';
+import { useState } from 'react';
 
 export const TasksPage = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <main className="task-main">
-      <div className="new-task">
-        <Input placeholder="Digite o nome da nova tarefa a ser adicionada" />
-        <Button text="Adicionar" />
-      </div>
+      <div className="new-task-container">
+        <div className="select-task">
+          <Select options={mockOptions} defaultValue="Todos" />
+          <ButtonCalendar />
+        </div>
 
-      <div className="select-task">
-        <Select options={mock} />
-        <ButtonCalendar />
+        <Button text="Adicionar tarefa" onClick={handleModal} />
       </div>
 
       <TaskList />
+
+      {openModal && <Modal open={openModal} handleCancel={handleModal} />}
     </main>
   );
 };

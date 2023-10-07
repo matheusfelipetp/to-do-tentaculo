@@ -1,10 +1,23 @@
+import { useTask } from '@/hooks/useTask';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { default as FullCalendar } from '@fullcalendar/react';
+import FullCalendar from '@fullcalendar/react';
 import { ArrowUUpLeft } from '@phosphor-icons/react';
 import { useNavigate } from 'react-router-dom';
 
 export const CalendarPage = () => {
+  const { taskList } = useTask();
   const navigate = useNavigate();
+
+  const events = taskList.map((task) => ({
+    title: task.title,
+    date: task.date,
+    color:
+      task.category === 'Normal'
+        ? '#289c68'
+        : task.category === 'Prioridade'
+        ? '#f5a623'
+        : '#d0021b',
+  }));
 
   const handleGoBack = () => {
     navigate('/');
@@ -20,20 +33,7 @@ export const CalendarPage = () => {
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         weekends
-        events={[
-          {
-            title: 'Evento 1',
-            date: '2023-10-06',
-          },
-          {
-            title: 'Evento 2',
-            date: '2023-10-06',
-          },
-          {
-            title: 'Evento 2',
-            date: '2023-10-06',
-          },
-        ]}
+        events={events}
         locale="pt-br"
         buttonText={{
           today: 'Hoje',
@@ -45,7 +45,6 @@ export const CalendarPage = () => {
           center: 'title',
           right: 'dayGridMonth,dayGridWeek',
         }}
-        eventColor="#289c68"
       />
     </main>
   );

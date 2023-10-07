@@ -1,54 +1,38 @@
+import { TaskCard } from '@/components/TaskCard';
+import { useTask } from '@/hooks/useTask';
 import { ClipboardText } from '@phosphor-icons/react';
-import { v4 as uuid } from 'uuid';
-import { TaskCard } from '../TaskCard';
-
-const mock: any[] = [
-  {
-    id: uuid(),
-    title:
-      'Estudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar NextEstudar Next',
-    description:
-      'Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1Descrição da tarefa 1',
-    date: '22/05/2023',
-    category: 'Normal',
-    isFinished: true,
-  },
-  {
-    id: uuid(),
-    title: 'Arrumar o quarto',
-    description: 'Descrição da tarefa 1',
-    date: '22/05/2023',
-    category: 'Prioridade',
-    isFinished: true,
-  },
-  {
-    id: uuid(),
-    title: 'Lavar a louça',
-    description: 'Descrição da tarefa 1',
-    date: '22/05/2023',
-    category: 'Urgente',
-    isFinished: false,
-  },
-];
 
 export const TaskList = () => {
+  const { taskList, filteredList } = useTask();
+
+  const tasksFinished = taskList.filter((elem) => elem.isFinished);
+
   return (
     <div className="task-list">
       <div className="text-container">
         <p className="task-created">
-          Tarefas Criadas <span>0</span>
+          Tarefas Criadas <span>{taskList.length}</span>
         </p>
 
         <p className="task-finished">
-          Concluídas <span>0 de 0</span>
+          Concluídas
+          <span>
+            {tasksFinished.length} de {taskList.length}
+          </span>
         </p>
       </div>
 
-      {mock?.length ? (
+      {taskList?.length ? (
         <div className="tasks">
-          {mock.map((elem) => (
-            <TaskCard task={elem} key={elem.id} />
-          ))}
+          {filteredList?.length ? (
+            filteredList.map((elem) => <TaskCard task={elem} key={elem.id} />)
+          ) : (
+            <div className="empty-list">
+              <ClipboardText size={60} />
+              <h3>Você ainda não tem tarefas cadastradas nessa prioridade</h3>
+              <p>Adicione e comece a organizar sua rotina</p>
+            </div>
+          )}
         </div>
       ) : (
         <div className="empty-list">

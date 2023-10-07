@@ -30,3 +30,33 @@ $radius: 8px;
 body {
   background: $gray-600;
 }
+
+@mixin input {
+  border: none;
+  background: $gray-500;
+  border-radius: $radius;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+  border: 1px solid transparent;
+
+  &::placeholder {
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary;
+  }
+}
+
+.input {
+  @include input;
+  @include fontType(14);
+  color: $gray-100;
+
+  &::placeholder {
+    color: $gray-200;
+  }
+}

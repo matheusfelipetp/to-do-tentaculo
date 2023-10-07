@@ -1,4 +1,3 @@
-import { Input } from '@/components/Input';
 import { Logo } from '@/components/Logo';
 
 export const Header = () => {
@@ -6,7 +5,6 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <Logo />
-        <Input isSearch placeholder="Digite o nome da tarefa" />
       </div>
     </header>
   );

@@ -1,14 +1,26 @@
-.select {
-  @include input;
-  color: $gray-200;
-  max-width: 400px;
-  padding: 0.8rem;
+//O important está sendo utilizado em alguns casos para sobrescrever o estilo padrão do antd
 
-  @include device(medium) {
-    max-width: 100%;
-  }
+.ant-select {
+  width: 100%;
+  height: 50px;
+  border: none;
+}
 
-  option {
-    color: $gray-100;
-  }
+.ant-select-selector,
+.ant-select-selection-search {
+  background: $gray-500 !important;
+}
+
+.ant-select-selector {
+  border: none !important;
+}
+
+.ant-select-selection-item,
+.ant-select-selection-search,
+.ant-select-selection-search-input {
+  color: $gray-100 !important;
+}
+
+.ant-select-arrow {
+  color: $gray-200 !important;
 }

@@ -12,7 +12,7 @@
 
   justify-content: center;
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
   font-weight: 700;
   gap: 0.5rem;
   padding: 0.8rem 3rem;
@@ -23,7 +23,7 @@
     filter: brightness(1.1);
   }
 
-  @include device(medium) {
+  @include device(large) {
     max-width: 50px;
     padding: 0.8rem;
 
