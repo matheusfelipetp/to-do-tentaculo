@@ -1,3 +1,5 @@
+//O important está sendo utilizado em alguns casos para sobrescrever o estilo padrão do antd
+
 .task-main {
   @include container;
   @include content;
@@ -17,4 +19,8 @@
     gap: 1rem;
     width: 100%;
   }
+}
+
+.ant-switch-inner-checked {
+  color: $gray-700 !important;
 }

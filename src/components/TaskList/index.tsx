@@ -5,19 +5,19 @@ import { ClipboardText } from '@phosphor-icons/react';
 export const TaskList = () => {
   const { taskList, filteredList } = useTask();
 
-  const tasksFinished = taskList.filter((elem) => elem.isFinished);
+  const tasksFinished = filteredList.filter((elem) => elem.isFinished);
 
   return (
     <div className="task-list">
       <div className="text-container">
         <p className="task-created">
-          Tarefas Criadas <span>{taskList.length}</span>
+          Tarefas Criadas <span>{filteredList.length}</span>
         </p>
 
         <p className="task-finished">
           Concluídas
           <span>
-            {tasksFinished.length} de {taskList.length}
+            {tasksFinished.length} de {filteredList.length}
           </span>
         </p>
       </div>

@@ -15,10 +15,26 @@ export const Select = ({ options, defaultValue }: SelectProps) => {
   const { taskList, setFilteredList } = useTask();
 
   const handleChange = (value: string) => {
+    const sortedTasks = taskList.slice().sort((a, b) => {
+      const dateComparison = a.date.localeCompare(b.date);
+
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
+
+      const priorityOrder = { Urgente: 0, Prioridade: 1, Normal: 2 };
+      const priorityComparison =
+        priorityOrder[a.category] - priorityOrder[b.category];
+
+      return priorityComparison;
+    });
+
     if (value === 'Todos') {
-      setFilteredList(taskList);
+      setFilteredList(sortedTasks);
     } else {
-      const filteredList = taskList.filter((task) => task.category === value);
+      const filteredList = sortedTasks.filter(
+        (task) => task.category === value,
+      );
 
       setFilteredList(filteredList);
     }
