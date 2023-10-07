@@ -1,8 +1,8 @@
 import { Modal } from '@/components/Modal';
-import { TaskProps } from '@/contexts/TaskContext';
 import { useMedia } from '@/hooks/useMedia';
 import { useTask } from '@/hooks/useTask';
 import { storageSaveTask } from '@/storage/storageTasks';
+import { TaskProps } from '@/types/task';
 import { Pencil, Trash } from '@phosphor-icons/react';
 import { Checkbox, Popconfirm } from 'antd';
 import dayjs from 'dayjs';

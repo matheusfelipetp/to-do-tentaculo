@@ -1,15 +1,7 @@
 import { storageGetTasks, storageSaveTask } from '@/storage/storageTasks';
+import { TaskProps } from '@/types/task';
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-
-export type TaskProps = {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  category: 'Normal' | 'Prioridade' | 'Urgente';
-  isFinished: boolean;
-};
 
 type TaskContextProps = {
   taskList: TaskProps[];

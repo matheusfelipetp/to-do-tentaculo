@@ -1,4 +1,4 @@
-import { TaskProps } from '@/contexts/TaskContext';
+import { TaskProps } from '@/types/task';
 import { TASKS_STORAGE } from './storageConfig';
 
 export const storageSaveTask = (tasks: TaskProps[]) => {

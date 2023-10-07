@@ -1,6 +1,6 @@
-import { TaskProps } from '@/contexts/TaskContext';
 import { useTask } from '@/hooks/useTask';
 import { mockOptionsCreate } from '@/mocks/options';
+import { TaskProps } from '@/types/task';
 import {
   Col,
   DatePicker,
@@ -119,7 +119,7 @@ export const Modal = ({
           </Col>
 
           <Col xs={24}>
-            <Form.Item name="description" rules={rules}>
+            <Form.Item name="description">
               <Input
                 className="input"
                 placeholder="Digite a descrição da tarefa"
